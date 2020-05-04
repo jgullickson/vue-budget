@@ -1,0 +1,296 @@
+/* theme */
+$accentHeavy: #ff9f1cff;
+$accentLight: #ffbf69ff;
+$white: #ffffffff;
+$secondary: #cbf3f0ff;
+$main: #2ec4b6ff;
+$card: rgba(221, 221, 221, 0.1);
+$dark: #1a1a1a;
+$red: rgba(228, 91, 91, 0.7);
+$green: rgb(46, 196, 146);
+$boxShadow: #87928f;
+
+body {
+    background-color: whitesmoke;
+    color: $dark;
+    font-family: sans-serif;
+    margin: 0;
+    width: 100vw;
+}
+
+.card {
+    background-color: $card;
+    box-shadow: 1px 1px 5px rgb(192, 191, 191);
+}
+
+.form-style {
+    form {
+        margin: 1em;
+    }
+
+    input, select {
+        width: 100%;
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $main;
+        border-radius: 0px;
+    }
+
+    label {
+        display: none;
+    }
+}
+
+.btn {
+    border: none;
+    margin: 0;
+    display: block;
+    padding: 0.5em;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+    }
+}
+
+.divider {
+    width: 100%;
+    padding: 0.25rem;
+    border-bottom: 1px solid transparentize($color: $dark, $amount: 0.5);
+}
+
+.banner {
+    width: 100%;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    // background: linear-gradient(90deg, $secondary, darken($secondary, $amount: 15%));
+    background-color: $dark;
+    box-shadow: 0px 1px 3px $boxShadow;
+
+    h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: $secondary;
+    }
+}
+
+.main-grid {
+    width: 70%;
+    margin: 2em auto;
+    display: grid;
+    grid-template-columns: 0.25fr 0.5fr;
+    gap: 30px;
+}
+
+.record-logger {
+    @extend .card;
+    @extend .form-style;
+    padding: 0;
+
+    .mode-btn {
+        display: block;
+        padding: 0.5em;
+        color: whitesmoke;
+        font-size: 1.2rem;
+        border: none;
+        margin: 0;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.9;
+        }
+    }
+
+    .mode-btn-active {
+        background-color: $main;
+    }
+
+    .mode-btn-inactive {
+        background-color: darken($secondary, $amount: 10%);
+    }
+
+    .mode-btn-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr;
+
+        div {
+            display: block;
+            text-align: center;
+            position: relative;
+            span {
+                font-weight: bold;
+                font-size: 1.2rem;
+                position: absolute;
+                display: block;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .record-submit-btn {
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+        background-color: $accentLight;
+        color: whitesmoke;
+        font-size: 1.5rem;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.9;
+        }
+    }
+}
+
+.red-border {
+    border: 2px solid $red !important;
+    border-radius: 5px !important;
+}
+
+.red-text {
+    color: $red;
+}
+
+.green-text {
+    color: $green;
+}
+
+.record-list {
+    @extend .card;
+    padding: 1em;
+    height: 400px;
+    overflow: scroll;
+    position: relative;
+}
+
+.record {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    border-bottom: 1px solid lightgrey;
+    padding: 0.75em;
+    font-size: 1.2rem;
+    white-space: nowrap;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $secondary;
+    }
+    
+    div {
+        position: relative;
+
+        span {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .record-title {
+
+    }
+
+    .record-icon {
+        float: right;
+        margin: 0 0.5em;
+        height: 1.5em;
+    }
+    .record-amount {
+
+        &.record-amount-income {
+            span {
+                &::before{
+                    content: '+ $ ';
+                }
+            }
+            color: $green
+        }
+        &.record-amount-expense {
+            span {
+                &::before{
+                    content: '- $ ';
+                }
+            }
+            color: $red
+        }
+    }
+}
+
+.record-expanded {
+    @extend .form-style;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1em;
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+    opacity: 1;
+    z-index: 100;
+
+    button {
+        @extend .btn;
+        font-size: 1.2rem;
+        color: whitesmoke;
+    }
+
+    .delete-btn {
+        background-color: $red;
+    }
+    .update-btn {
+        background-color: $main;
+    }
+    .collapse-btn {
+        background-color: $accentLight;
+    }
+
+    .btn-row {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 2fr;
+        gap: 1em;
+    }
+
+
+}
+
+.stats-container {
+    @extend .card;
+    padding: 1em;
+    font-size: 1.3rem;
+
+    .stats-totals {
+        div {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 0.25em;
+
+            span {
+                display: block;
+            }
+        }
+
+        .stats-title {
+            font-weight: bold;
+        }
+
+        .stats-val {
+            &::before{
+                content: '$'
+            }
+        }
+    }
+}
+// <div class='stats-container'>
+    // <div class='stats-totals'>
+        // <div><span class='stats-title'>Income:</span><span class=' stats-valgreen-text'>{{this.totalIn.toFixed(2)}}</span></div>
+        // <div><span class='stats-title'>Expenses:</span><span class='stats-val red-text'>{{this.totalOut.toFixed(2)}}</span></div>
+        // <div class='divider'></div>
+        // <div><span class='stats-title'>Net:</span><span :class='["stats-val", this.net < 0 ? "red-text" : "green-text"]'>{{this.net.toFixed(2)}}</span></div>    
+    // </div>   
+// </div>

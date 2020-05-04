@@ -1,0 +1,186 @@
+/* theme */
+body {
+  background-color: whitesmoke;
+  color: #1a1a1a;
+  font-family: sans-serif;
+  margin: 0;
+  width: 100vw; }
+
+.card, .record-logger, .record-list, .stats-container {
+  background-color: rgba(221, 221, 221, 0.1);
+  box-shadow: 1px 1px 5px #c0bfbf; }
+
+.form-style form, .record-logger form, .record-expanded form {
+  margin: 1em; }
+
+.form-style input, .record-logger input, .record-expanded input, .form-style select, .record-logger select, .record-expanded select {
+  width: 100%;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #2ec4b6ff;
+  border-radius: 0px; }
+
+.form-style label, .record-logger label, .record-expanded label {
+  display: none; }
+
+.btn, .record-expanded button {
+  border: none;
+  margin: 0;
+  display: block;
+  padding: 0.5em; }
+  .btn:hover, .record-expanded button:hover {
+    cursor: pointer;
+    opacity: 0.9; }
+
+.divider {
+  width: 100%;
+  padding: 0.25rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.5); }
+
+.banner {
+  width: 100%;
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  box-shadow: 0px 1px 3px #87928f; }
+  .banner h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #cbf3f0ff; }
+
+.main-grid {
+  width: 70%;
+  margin: 2em auto;
+  display: grid;
+  grid-template-columns: 0.25fr 0.5fr;
+  gap: 30px; }
+
+.record-logger {
+  padding: 0; }
+  .record-logger .mode-btn {
+    display: block;
+    padding: 0.5em;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    border: none;
+    margin: 0; }
+    .record-logger .mode-btn:hover {
+      cursor: pointer;
+      opacity: 0.9; }
+  .record-logger .mode-btn-active {
+    background-color: #2ec4b6ff; }
+  .record-logger .mode-btn-inactive {
+    background-color: #a2e9e4; }
+  .record-logger .mode-btn-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr; }
+    .record-logger .mode-btn-row div {
+      display: block;
+      text-align: center;
+      position: relative; }
+      .record-logger .mode-btn-row div span {
+        font-weight: bold;
+        font-size: 1.2rem;
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+  .record-logger .record-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    background-color: #ffbf69ff;
+    color: whitesmoke;
+    font-size: 1.5rem; }
+    .record-logger .record-submit-btn:hover {
+      cursor: pointer;
+      opacity: 0.9; }
+
+.red-border {
+  border: 2px solid rgba(228, 91, 91, 0.7) !important;
+  border-radius: 5px !important; }
+
+.red-text {
+  color: rgba(228, 91, 91, 0.7); }
+
+.green-text {
+  color: #2ec492; }
+
+.record-list {
+  padding: 1em;
+  height: 400px;
+  overflow: scroll;
+  position: relative; }
+
+.record {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  border-bottom: 1px solid lightgrey;
+  padding: 0.75em;
+  font-size: 1.2rem;
+  white-space: nowrap; }
+  .record:hover {
+    cursor: pointer;
+    background-color: #cbf3f0ff; }
+  .record div {
+    position: relative; }
+    .record div span {
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); }
+  .record .record-icon {
+    float: right;
+    margin: 0 0.5em;
+    height: 1.5em; }
+  .record .record-amount.record-amount-income {
+    color: #2ec492; }
+    .record .record-amount.record-amount-income span::before {
+      content: '+ $ '; }
+  .record .record-amount.record-amount-expense {
+    color: rgba(228, 91, 91, 0.7); }
+    .record .record-amount.record-amount-expense span::before {
+      content: '- $ '; }
+
+.record-expanded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  background-color: whitesmoke;
+  opacity: 1;
+  z-index: 100; }
+  .record-expanded button {
+    font-size: 1.2rem;
+    color: whitesmoke; }
+  .record-expanded .delete-btn {
+    background-color: rgba(228, 91, 91, 0.7); }
+  .record-expanded .update-btn {
+    background-color: #2ec4b6ff; }
+  .record-expanded .collapse-btn {
+    background-color: #ffbf69ff; }
+  .record-expanded .btn-row {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    gap: 1em; }
+
+.stats-container {
+  padding: 1em;
+  font-size: 1.3rem; }
+  .stats-container .stats-totals div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0.25em; }
+    .stats-container .stats-totals div span {
+      display: block; }
+  .stats-container .stats-totals .stats-title {
+    font-weight: bold; }
+  .stats-container .stats-totals .stats-val::before {
+    content: '$'; }
