@@ -30,7 +30,7 @@ body {
 
     input, select {
         width: 100%;
-        font-size: 2rem;
+        font-size: 1.25rem;
         margin-bottom: 0.5em;
         background-color: transparent;
         border: none;
@@ -61,6 +61,7 @@ body {
 }
 
 .banner {
+    display: flex;
     width: 100%;
     padding: 0.5em 1em;
     box-sizing: border-box;
@@ -70,16 +71,34 @@ body {
 
     h1 {
         margin: 0;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         color: $secondary;
+        opacity: 0.7;
+    }
+
+    img {
+        display: block;
+        margin: 0 0.5em;
     }
 }
 
 .main-grid {
     width: 70%;
+    @media (max-width: 1000px){
+        width: 80%;
+    }
+    @media(max-width: 650px){
+        width: 90%;
+    }
+    @media(max-width: 600px){
+        width: 95%;
+    }
     margin: 2em auto;
     display: grid;
-    grid-template-columns: 0.25fr 0.5fr;
+    grid-template-columns: 0.5fr 1fr;
+    @media(max-width: 900px){
+        grid-template-columns: 1fr;
+    }
     gap: 30px;
 }
 
@@ -93,6 +112,9 @@ body {
         padding: 0.5em;
         color: whitesmoke;
         font-size: 1.2rem;
+        @media(max-width: 1130px){
+            font-size: 1rem;
+        }
         border: none;
         margin: 0;
 
@@ -136,7 +158,8 @@ body {
         padding: 0.5em;
         background-color: $accentLight;
         color: whitesmoke;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        border: none;
 
         &:hover {
             cursor: pointer;
@@ -162,6 +185,7 @@ body {
     @extend .card;
     padding: 1em;
     height: 400px;
+    min-width: 300px;
     overflow: scroll;
     position: relative;
 }
@@ -171,8 +195,11 @@ body {
     grid-template-columns: 1fr 1fr 2fr;
     border-bottom: 1px solid lightgrey;
     padding: 0.75em;
-    font-size: 1.2rem;
     white-space: nowrap;
+
+    @media(max-width: 600px){
+        font-size: 3vw;
+    }
 
     &:hover {
         cursor: pointer;
@@ -191,7 +218,9 @@ body {
     }
 
     .record-title {
+        @media(max-width: 600px){
 
+        }
     }
 
     .record-icon {
@@ -262,7 +291,6 @@ body {
 .stats-container {
     @extend .card;
     padding: 1em;
-    font-size: 1.3rem;
 
     .stats-totals {
         div {

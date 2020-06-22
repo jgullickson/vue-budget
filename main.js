@@ -75,10 +75,14 @@ Vue.component('banner', {
             type: String,
             required: true,
             default: 'Welcome'
+        },
+        icon: {
+            type: String
         }
     },
     template: `
     <div class='banner'>
+        <img :src='icon' alt='logo'>
         <h1>{{greeting}}</h1>
     </div>
     `
@@ -383,6 +387,7 @@ const vm = new Vue({
     el: '#root',
     data: {
         greeting: 'clear',
+        iconpath: './favicons/favicon-32x32.png',
         income_categories: [
             'Paycheck',
             'Other'
@@ -436,6 +441,7 @@ const vm = new Vue({
         <div>
 
             <banner
+                :icon='iconpath'
                 :greeting='greeting'></banner>
             <div class='main-grid'>
 

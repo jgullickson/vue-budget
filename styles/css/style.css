@@ -15,7 +15,7 @@ body {
 
 .form-style input, .record-logger input, .record-expanded input, .form-style select, .record-logger select, .record-expanded select {
   width: 100%;
-  font-size: 2rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5em;
   background-color: transparent;
   border: none;
@@ -40,6 +40,7 @@ body {
   border-bottom: 1px solid rgba(26, 26, 26, 0.5); }
 
 .banner {
+  display: flex;
   width: 100%;
   padding: 0.5em 1em;
   box-sizing: border-box;
@@ -47,15 +48,31 @@ body {
   box-shadow: 0px 1px 3px #87928f; }
   .banner h1 {
     margin: 0;
-    font-size: 1.5rem;
-    color: #cbf3f0ff; }
+    font-size: 1.7rem;
+    color: #cbf3f0ff;
+    opacity: 0.7; }
+  .banner img {
+    display: block;
+    margin: 0 0.5em; }
 
 .main-grid {
   width: 70%;
   margin: 2em auto;
   display: grid;
-  grid-template-columns: 0.25fr 0.5fr;
+  grid-template-columns: 0.5fr 1fr;
   gap: 30px; }
+  @media (max-width: 1000px) {
+    .main-grid {
+      width: 80%; } }
+  @media (max-width: 650px) {
+    .main-grid {
+      width: 90%; } }
+  @media (max-width: 600px) {
+    .main-grid {
+      width: 95%; } }
+  @media (max-width: 900px) {
+    .main-grid {
+      grid-template-columns: 1fr; } }
 
 .record-logger {
   padding: 0; }
@@ -66,6 +83,9 @@ body {
     font-size: 1.2rem;
     border: none;
     margin: 0; }
+    @media (max-width: 1130px) {
+      .record-logger .mode-btn {
+        font-size: 1rem; } }
     .record-logger .mode-btn:hover {
       cursor: pointer;
       opacity: 0.9; }
@@ -94,7 +114,8 @@ body {
     padding: 0.5em;
     background-color: #ffbf69ff;
     color: whitesmoke;
-    font-size: 1.5rem; }
+    font-size: 1.2rem;
+    border: none; }
     .record-logger .record-submit-btn:hover {
       cursor: pointer;
       opacity: 0.9; }
@@ -112,6 +133,7 @@ body {
 .record-list {
   padding: 1em;
   height: 400px;
+  min-width: 300px;
   overflow: scroll;
   position: relative; }
 
@@ -120,8 +142,10 @@ body {
   grid-template-columns: 1fr 1fr 2fr;
   border-bottom: 1px solid lightgrey;
   padding: 0.75em;
-  font-size: 1.2rem;
   white-space: nowrap; }
+  @media (max-width: 600px) {
+    .record {
+      font-size: 3vw; } }
   .record:hover {
     cursor: pointer;
     background-color: #cbf3f0ff; }
@@ -172,8 +196,7 @@ body {
     gap: 1em; }
 
 .stats-container {
-  padding: 1em;
-  font-size: 1.3rem; }
+  padding: 1em; }
   .stats-container .stats-totals div {
     display: grid;
     grid-template-columns: 1fr 1fr;
